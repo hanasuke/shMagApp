@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        self.backgroundColor = SKColor.blackColor()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
