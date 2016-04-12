@@ -22,6 +22,10 @@ class GameScene: SKScene {
         
         for touch in touches {
             let location = touch.locationInNode(self)
+            let touchedNode = self.nodeAtPoint(location)
+            touchedNode.removeFromParent()
+            print(touchedNode)
+
         }
     }
    
