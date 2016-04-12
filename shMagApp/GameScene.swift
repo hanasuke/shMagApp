@@ -23,7 +23,9 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             let touchedNode = self.nodeAtPoint(location)
-            touchedNode.removeFromParent()
+            if touchedNode.name == "Spaceship" {
+                touchedNode.removeFromParent()
+            }
             print(touchedNode)
 
         }
@@ -46,6 +48,7 @@ class GameScene: SKScene {
         let sprite = SKSpriteNode(imageNamed: "Spaceship")
         sprite.xScale = 0.2
         sprite.yScale = 0.2
+        sprite.name = "Spaceship"
 
 
         sprite.position.x = CGFloat(randNum())
