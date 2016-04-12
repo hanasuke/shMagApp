@@ -51,6 +51,7 @@ class GameScene: SKScene {
             finishLabel.text = "You Win!"
             finishLabel.fontSize = 40
             finishLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+            self.addChild(finishLabel)
         }
     }
 
