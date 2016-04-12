@@ -15,6 +15,10 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         self.backgroundColor = SKColor.blackColor()
+
+        for _ in 1...20 {
+            createEnemy()
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -26,8 +30,6 @@ class GameScene: SKScene {
             if touchedNode.name == "Spaceship" {
                 touchedNode.removeFromParent()
             }
-            print(touchedNode)
-
         }
     }
    
@@ -42,6 +44,14 @@ class GameScene: SKScene {
 
             interval = currentTime
         }
+
+        if self.children.count < 10 {
+            interval = 99999
+            let finishLabel = SKLabelNode()
+            finishLabel.text = "You Win!"
+            finishLabel.fontSize = 40
+            finishLabel.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        }
     }
 
     func createEnemy() {
@@ -50,11 +60,8 @@ class GameScene: SKScene {
         sprite.yScale = 0.2
         sprite.name = "Spaceship"
 
-
         sprite.position.x = CGFloat(randNum())
         sprite.position.y = CGFloat(randNum())
-
-        print(sprite.position)
 
         let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
 
